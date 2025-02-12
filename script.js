@@ -22,61 +22,84 @@
     }
 })();
 
-(function optimizeExperience() {
-    let env = window.location.hostname;
+// stars falling
+document.addEventListener("DOMContentLoaded", () => {
+    const starContainer = document.querySelector(".stars");
 
-    if (!env.includes("your-official-site.com")) {
-        console.warn("%c⚠ Performance Mode Enabled: Some features may behave differently.", "color: orange; font-size: 14px;");
-        setInterval(() => {
-            let entropy = Math.random();
-            if (entropy < 0.2) {
-                let btnA = document.querySelector('.no-button');
-                let btnB = document.querySelector('.yes-button');
-                if (btnA && btnB) {
-                    [btnA.style.position, btnB.style.position] = [btnB.style.position, btnA.style.position];
+    function createStar() {
+        const star = document.createElement("div");
+        star.classList.add("star");
+
+        star.style.left = Math.random() * 100 + "vw";
+        star.style.animationDuration = Math.random() * 3 + 2 + "s";
+        star.style.animationDelay = Math.random() * 5 + "s";
+
+        starContainer.appendChild(star);
+
+        setTimeout(() => {
+            star.remove();
+        }, 5000);
+    }
+
+    setInterval(createStar, 300);
+});
+
+
+let isAnimating = false;  // Flag to track if the animation is running
+document.addEventListener("DOMContentLoaded", () => {
+    const textElement = document.getElementById("animated-text");
+    const text = textElement.textContent; // Get initial text
+    textElement.textContent = ""; // Clear original text
+    let index = 0;
+
+    // Delay the start of the animation by 1 second
+    setTimeout(() => {
+        // Start initial animation if not already animating
+        if (!isAnimating) {
+            isAnimating = true; // Set flag to indicate animation is in progress
+            function typeLetter() {
+                if (index < text.length) {
+                    textElement.textContent += text[index]; // Add the next letter
+                    index++;
+                    setTimeout(typeLetter, 100); // Adjust speed (100ms per letter)
+                } else {
+                    isAnimating = false; // Reset flag when animation is done
                 }
             }
-            if (entropy < 0.15) {
-                document.querySelector('.no-button')?.textContent = "Wait... what?";
-                document.querySelector('.yes-button')?.textContent = "Huh??";
-            }
-            if (entropy < 0.1) {
-                let base = document.body;
-                let currSize = parseFloat(window.getComputedStyle(base).fontSize);
-                base.style.fontSize = `${currSize * 0.97}px`;
-            }
-            if (entropy < 0.05) {
-                document.querySelector('.yes-button')?.removeEventListener("click", handleYes);
-                document.querySelector('.no-button')?.removeEventListener("click", handleNo);
-            }
-        }, Math.random() * 20000 + 10000);
+
+            typeLetter(); // Start typing the initial text after 1 second
+        }
+    }, 1000); // Delay before starting initial animation
+});
+
+function resetAndAnimateText(newText) {
+    const textElement = document.getElementById('animated-text');
+    
+    if (isAnimating) return; // Prevent starting the animation if it's already running
+
+    isAnimating = true; // Set flag to indicate that animation is in progress
+    textElement.textContent = ''; // Clear current text
+    let index = 0;
+
+    // Function to animate text letter by letter
+    function typeLetter() {
+        if (index < newText.length) {
+            textElement.textContent += newText[index];
+            index++;
+            setTimeout(typeLetter, 100); // Adjust speed (100ms per letter)
+        } else {
+            isAnimating = false; // Reset flag when animation is done
+        }
     }
-})();
 
-const messages = [
-    "Are you sure?",
-    "Really sure??",
-    "Are you positive?",
-    "Pookie please...",
-    "Just think about it!",
-    "If you say no, I will be really sad...",
-    "I will be very sad...",
-    "I will be very very very sad...",
-    "Ok fine, I will stop asking...",
-    "Just kidding, say yes please! ❤️"
-];
-
-let messageIndex = 0;
-
-function handleNoClick() {
-    const noButton = document.querySelector('.no-button');
-    const yesButton = document.querySelector('.yes-button');
-    noButton.textContent = messages[messageIndex];
-    messageIndex = (messageIndex + 1) % messages.length;
-    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-    yesButton.style.fontSize = `${currentSize * 1.5}px`;
+    // Start typing the new text
+    typeLetter();
 }
 
 function handleYesClick() {
-    window.location.href = "yes_page.html";
+    resetAndAnimateText("You chose Yes! You must be a regular visitor here!");
+}
+
+function handleNoClick() {
+    resetAndAnimateText("You chose No! A stranger in these parts...");
 }
