@@ -34,7 +34,7 @@ body {
     overflow-wrap: break-word;
     white-space: normal;
     max-width: 100px; /* Ensures h1 text does not overflow */
-    text-shadow: 6px 6px 10px rgba(0, 0, 0, 1); /* Strong black shadow */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 1); /* Strong black shadow */
   }
 
   #animated-text {
@@ -46,7 +46,7 @@ body {
     margin: 0 auto; /* Centers the text block */
   }
   
-  .volume-control {
+.volume-control {
     margin-top: 20px;
     text-align: right;
 }
@@ -122,3 +122,5 @@ body {
         opacity: 0;
     }
 }
+
+
