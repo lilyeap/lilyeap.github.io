@@ -96,10 +96,30 @@ function resetAndAnimateText(newText) {
     typeLetter();
 }
 
-function handleYesClick() {
-    resetAndAnimateText("You chose Yes! You must be a regular visitor here!");
+idx = 0;
+idxMAX = 2;
+
+const textArray = [
+    "hmm just wanted to make something small as a token of appreciation.. and for vday, of course!",
+    "well this is just the beginning.. i'll be making it a lot better but this is a sneak peek :D"
+];
+
+function handleButtonClick(){
+    console.log("Hello, world!");
+    if (idx < idxMAX) {
+        resetAndAnimateText(textArray[idx]);
+    }
 }
 
-function handleNoClick() {
-    resetAndAnimateText("You chose No! A stranger in these parts...");
-}
+// function handleYesClick() {
+//     // resetAndAnimateText("You chose Yes! You must be a regular visitor here!");
+//     console.log("Hello, world!");
+
+//     if (idx < idxMAX) {
+//         resetAndAnimateText(textArray[idx]);
+//     }
+// }
+
+// function handleNoClick() {
+//     resetAndAnimateText("You chose No! A stranger in these parts...");
+// }
