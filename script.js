@@ -44,6 +44,29 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(createStar, 300);
 });
 
+// music 
+document.addEventListener("DOMContentLoaded", () => {
+    // Get the audio element
+    const audio = document.getElementById('background-music');
+
+    // Play the audio when the user hovers over the body
+    document.body.addEventListener('mouseover', function() {
+        if (audio.paused) {
+            audio.play();  // Play the audio when the mouse enters the page
+        }
+    });
+
+})
+
+let audioElement = new Audio('your-audio-file.mp3');  // Replace with your audio file
+audioElement.play(); // Start playing when the page loads
+
+function adjustVolume() {
+    const volumeSlider = document.getElementById('volumeSlider');
+    audioElement.volume = volumeSlider.value; // Adjust volume based on slider value
+}
+
+
 
 let isAnimating = false;  // Flag to track if the animation is running
 document.addEventListener("DOMContentLoaded", () => {
@@ -76,6 +99,7 @@ function resetAndAnimateText(newText) {
     const textElement = document.getElementById('animated-text');
     
     if (isAnimating) return; // Prevent starting the animation if it's already running
+    idx++;
 
     isAnimating = true; // Set flag to indicate that animation is in progress
     textElement.textContent = ''; // Clear current text
@@ -97,15 +121,15 @@ function resetAndAnimateText(newText) {
 }
 
 idx = 0;
-idxMAX = 2;
+idxMAX = 3;
 
 const textArray = [
     "hmm just wanted to make something small as a token of appreciation.. and for vday, of course!",
-    "well this is just the beginning.. i'll be making it a lot better but this is a sneak peek :D"
+    "well this is just the beginning.. i'll be making it a lot better but this is a sneak peek :D",
+    "i hope you're having a good day love <3"
 ];
 
 function handleButtonClick(){
-    console.log("Hello, world!");
     if (idx < idxMAX) {
         resetAndAnimateText(textArray[idx]);
     }
