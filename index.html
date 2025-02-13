@@ -8,12 +8,22 @@
 </head>
 <body>
     <div class="container">
-        <h1 id = "animated-text">welcome.......... you come around here often?</h1>
+        <h1 id = "animated-text">welcome david.......... you come around here often?</h1>
         <div class="buttons">
-            <button class="yes-button" onclick="handleButtonClick()">Yes</button>
+            <button class="next-button" onclick="handleButtonClick()">next</button>
             <!-- <button class="yes-button" onclick="handleYesClick()">Yes</button> -->
             <!-- <button class="no-button" onclick="handleNoClick()">No</button>--> 
         </div>
+        <div class="volume-control">
+            <label for="volumeSlider">Volume:</label>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" onchange="adjustVolume()">
+        </div>
+        
+
+        <audio id="background-music">
+            <source src="Sweden.mp3" type="audio/mp3">
+        </audio>
+    
     </div>
 
 
