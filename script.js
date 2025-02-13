@@ -58,14 +58,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 
-let audioElement = new Audio('your-audio-file.mp3');  // Replace with your audio file
-audioElement.play(); // Start playing when the page loads
-
+// Adjust the volume based on slider input
 function adjustVolume() {
+    // Get the audio element
+    let audioElement = document.getElementById('background-music');
     const volumeSlider = document.getElementById('volumeSlider');
-    audioElement.volume = volumeSlider.value; // Adjust volume based on slider value
+    // Update the audio volume based on the slider value
+    audioElement.volume = volumeSlider.value;
 }
-
 
 
 let isAnimating = false;  // Flag to track if the animation is running
