@@ -135,15 +135,3 @@ function handleButtonClick(){
     }
 }
 
-// function handleYesClick() {
-//     // resetAndAnimateText("You chose Yes! You must be a regular visitor here!");
-//     console.log("Hello, world!");
-
-//     if (idx < idxMAX) {
-//         resetAndAnimateText(textArray[idx]);
-//     }
-// }
-
-// function handleNoClick() {
-//     resetAndAnimateText("You chose No! A stranger in these parts...");
-// }
