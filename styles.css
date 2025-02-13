@@ -19,29 +19,51 @@ body {
   overflow: hidden; /* Prevents scrollbars from appearing */
 }
 
-#animated-text {
-  font-size: 2rem;
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-}
-
   
-  .container {
-    text-align: center;
-  }
+.container {
+  position: absolute; /* Allows precise placement */
+  top: 175px; /* Adjusts distance from the top */
+  right: 200px; /* Adjusts distance from the right */
+  text-align: right; /* Aligns text inside the container to the right */
+}
   
   h1 {
     font-size: 2.5em;
-    color: #d32f2f;
+    color: #ffcaef;
+    word-wrap: break-word; /* Allows long words to wrap */
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100px; /* Ensures h1 text does not overflow */
+    text-shadow: 6px 6px 10px rgba(0, 0, 0, 1); /* Strong black shadow */
+  }
+
+  #animated-text {
+    max-width: 600px; /* Set the maximum width in pixels */
+    word-wrap: break-word; /* Ensures long words break onto the next line */
+    overflow-wrap: break-word; /* Helps with word breaking */
+    white-space: normal; /* Allows text to wrap normally */
+    text-align: right; /* Keeps the text centered */
+    margin: 0 auto; /* Centers the text block */
   }
   
+  .volume-control {
+    margin-top: 20px;
+    text-align: right;
+}
+
+#volumeSlider {
+    width: 200px;
+    margin-top: 10px;
+    background: #000000;
+}
+
+
 .buttons {
     font-family: 'pixel_font', sans-serif; 
     margin-top: 20px;
 }
 
-.yes-button, .no-button {
+.next-button, .no-button {
     font-size: 1.5em;
     padding: 10px 20px;
     border: none;
@@ -51,9 +73,9 @@ body {
     text-align: center; /* Centers the text */
 }
 
-.yes-button {
-    background-color: #4caf50; /* Green */
-    margin-right: 10px;
+.next-button {
+    background-color: #e7658a; 
+    /* margin-right: 10px; */
     font-family: 'pixel_font', sans-serif; 
 }
 
