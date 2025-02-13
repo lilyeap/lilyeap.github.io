@@ -83,7 +83,7 @@ body {
     position: absolute;
     width: 5px;
     height: 5px;
-    background: white;
+    background: #ffb7c5;
     box-shadow: 0 0 5px black;
     border-radius: 50%;
     opacity: 0.8;
