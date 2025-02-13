@@ -18,16 +18,11 @@
             <label for="volumeSlider">Volume:</label>
             <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" onchange="adjustVolume()">
         </div>
-        
-
-        <audio id="background-music">
-            <source src="Sweden.mp3" type="audio/mp3">
-        </audio>
-    
     </div>
-
-
     <div class="stars"></div>
     <script src="script.js"></script>
+    <audio id="background-music" autoplay loop>
+        <source src="Sweden.mp3" type="audio/mp3">
+    </audio>
 </body>
 </html>
